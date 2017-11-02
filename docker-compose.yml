@@ -1,4 +1,7 @@
 version: '3'
 services:
-  loggerhead:
-    build: loggerhead/
+  # loggerhead:
+  #   build: loggerhead/
+  gitlist:
+      build: gitlist
+      tty: true

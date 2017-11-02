@@ -7,7 +7,7 @@ ENV BZR_PREFIX           /loggerhead/
 RUN apt-get update && apt-get upgrade -y
 
 RUN apt-get install loggerhead sudo -y
-RUN ln -s /usr/lib/python2.7/dist-packages/loggerhead/static /usr/share/loggerhead/static
+RUN ln -s /usr/share/loggerhead/static /usr/lib/python2.7/dist-packages/loggerhead/static
 
 COPY entrypoint.sh /entrypoint.sh
 
