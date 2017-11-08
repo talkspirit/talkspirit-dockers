@@ -20,6 +20,8 @@ RUN echo "Europe/Paris" > /etc/timezone && \
 
 COPY gitlist.conf /etc/apache2/conf-available/gitlist.conf
 
+RUN a2enmod cgi
+
 # install gitlist
 RUN (cd /var/www/html/ && \
     curl -0 https://s3.amazonaws.com/gitlist/gitlist-master.tar.gz | tar -zx) && \
