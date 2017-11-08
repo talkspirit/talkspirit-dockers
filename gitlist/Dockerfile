@@ -16,7 +16,9 @@ RUN echo "Europe/Paris" > /etc/timezone && \
         apache2 \
         libapache2-mod-php7.0 \
         curl \
-        git
+        git \
+        php7.0-dom \
+        unzip
 
 COPY gitlist.conf /etc/apache2/conf-available/gitlist.conf
 
@@ -24,14 +26,18 @@ RUN a2enmod cgi
 
 # install gitlist
 RUN (cd /var/www/html/ && \
-    curl -0 https://s3.amazonaws.com/gitlist/gitlist-master.tar.gz | tar -zx) && \
-    (cd /var/www/html/gitlist/ && \
+    curl -0 https://codeload.github.com/klaussilveira/gitlist/tar.gz/0.5.0 | tar -zx) && \
+    (cd /var/www/html/ && ln -s gitlist-0.5.0 gitlist && cd gitlist && \
     mv config.ini-example config.ini && \
-    mkdir cache && chmod a+rwx cache/) && \
+    chmod a+rwx cache/) && \
     (cd /home/ && \
     mkdir -p /home/git/repositories/) && \
     a2enmod rewrite && \
     ln -s /etc/apache2/conf-available/gitlist.conf /etc/apache2/conf-enabled/gitlist.conf
+
+RUN cd /var/www/html/gitlist && \
+    curl -sS https://getcomposer.org/installer | php && \
+    php composer.phar --optimize-autoloader --classmap-authoritative --no-dev --prefer-dist install
 
 # repositories folder
 VOLUME /home/git/repositories/
