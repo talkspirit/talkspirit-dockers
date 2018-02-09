@@ -19,5 +19,8 @@ RUN cd /usr/local/bin/ && \
 # package
 RUN apt-get install -y build-essential debhelper devscripts
 
+RUN curl -sL https://deb.nodesource.com/setup_9.x | bash -
+RUN apt-get install -y nodejs
+
 # drop back to the regular jenkins user - good practice
 USER jenkins
