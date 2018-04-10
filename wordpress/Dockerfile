@@ -1,3 +1,3 @@
-FROM wordpress:4.9.4-apache
+FROM wordpress:4.9.5-apache
 
 RUN a2enmod ssl && a2enmod headers
