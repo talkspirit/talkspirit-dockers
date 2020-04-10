@@ -1,4 +1,4 @@
-FROM node:10.15-stretch
+FROM node:10.20.0-stretch
 
 # to build package
 RUN echo "\n# Gemfile\nsource \"https://rubygems.org\"\ngem \"fastlane\"" > /home/node/Gemfile && \
