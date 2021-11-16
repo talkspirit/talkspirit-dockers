@@ -1,4 +1,4 @@
-FROM node:12.14.0-buster
+FROM node:16.13-buster
 
 # to build package
 RUN echo "\n# Gemfile\nsource \"https://rubygems.org\"\ngem \"fastlane\"" > /home/node/Gemfile && \
