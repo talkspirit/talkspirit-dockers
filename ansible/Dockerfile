@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:20.04
 LABEL maintainer="Olivier RICARD <olivier+ansible@talkspirit.com>"
 
 # Set TZ for auto apt
