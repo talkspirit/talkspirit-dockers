@@ -1,4 +1,4 @@
-FROM node:16.19.0-bullseye
+FROM node:18.15.0-bullseye
 
 # to build package
 RUN echo "\n# Gemfile\nsource \"https://rubygems.org\"\ngem \"fastlane\"" > /home/node/Gemfile && \
