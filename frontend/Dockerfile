@@ -7,8 +7,7 @@ RUN echo "\n# Gemfile\nsource \"https://rubygems.org\"\ngem \"fastlane\"" > /hom
     apt-get install -y xvfb libgtk2.0-0 libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 && \
     # fastlane \
     apt-get install -y ruby-full && \
-    cd /home/node && gem install bundler && bundle update && \
-    npm install -g expo-cli --unsafe-perm
+    cd /home/node && gem install bundler && bundle update 
 
 ADD entrypoint.sh /entrypoint.sh
 RUN chown node.node /entrypoint.sh
