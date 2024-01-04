@@ -2,9 +2,15 @@ version: '3'
 services:
   # loggerhead:
   #   build: loggerhead/
-    gitlist:
-      build: gitlist
-      tty: true
+    # gitlist:
+    #   build: gitlist
+    #   tty: true
     # mediawiki:
     #     build: mediawiki
     #     tty: true
+  ansible:
+    build: ansible
+    tty: true
+  # mediawiki:
+  #     build: mediawiki
+  #     tty: true
